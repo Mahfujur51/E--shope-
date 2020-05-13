@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Hello, world!</title>
+  <title>E-shop!!Admin</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
@@ -23,74 +23,82 @@
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
       Tip 2: you can also add an image using data-image tag
-  -->
-      <div class="logo">
-        <a href="" class="simple-text logo-normal">
-         <?php if (isset($_SESSION['alogin'])) {
-          echo $_SESSION['alogin'];
-         } ?>
+    -->
+    <div class="logo">
+      <a href="" class="simple-text logo-normal">
+       <?php if (isset($_SESSION['alogin'])) {
+        echo $_SESSION['alogin'];
+      } ?>
+    </a>
+  </div>
+  <div class="sidebar-wrapper ps-container ps-theme-default" data-ps-id="3a8db1f4-24d8-4dbf-85c9-4f5215c1b29a">
+
+    <ul class="nav">
+      <li   <?php if(basename($_SERVER['PHP_SELF'], '.php') == 'index' ) { ?> class="active" <?php } else { ?> <?php }?>>
+        <a class="nav-link" href="index.php">
+          <i class="material-icons">dashboard</i>
+          <p>Dashboard</p>
         </a>
-      </div>
-      <div class="sidebar-wrapper ps-container ps-theme-default" data-ps-id="3a8db1f4-24d8-4dbf-85c9-4f5215c1b29a">
-        <ul class="nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.php">
-              <i class="material-icons">dashboard</i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="adduser.php">
-              <i class="material-icons">person</i>
-              <p>Add User</p>
-            </a>
-          </li>
-           <li class="nav-item ">
-            <a class="nav-link" href="category.php">
-              <i class="material-icons">dehaze</i>
-              <p>Add Category</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="productlist.php">
-              <i class="material-icons">list</i>
-              <p>Product List</p>
-            </a>
-            
-          </li>
-          
-          <li class="nav-item ">
-            <a class="nav-link" href="orders.php">
-              <i class="material-icons">library_books</i>
-              <p>Orders</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="addproduct.php">
-              <i class="material-icons">add</i>
-              <p>Add Products</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="manageuser.php">
-              <i class="material-icons">edit_user</i>
-              <p>Manage User</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="index.php">
-              <i class="material-icons">logout</i>
-              <p>Logout</p>
-            </a>
-          </li>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="adduser.php">
+          <i class="material-icons">person</i>
+          <p>Add User</p>
+        </a>
+      </li>
+      <li <?php if(basename($_SERVER['PHP_SELF'], '.php') == 'category'OR'addcat'OR'managecategory') { ?> class="active" <?php } else { ?> <?php }?>>
+        <a class="nav-link" href="category.php">
+          <i class="material-icons">dehaze</i>
+          <p>Category</p>
+        </a>
+      </li>
+      <li <?php if(basename($_SERVER['PHP_SELF'], '.php') == 'brand'OR'addbrand'OR'managebrand') { ?> class="active" <?php } else { ?> <?php }?>>
+        <a class="nav-link" href="brand.php">
+          <i class="material-icons">
+          branding_watermark
+        </i>
+        <p>Category</p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="productlist.php">
+        <i class="material-icons">list</i>
+        <p>Product List</p>
+      </a>
+
+    </li>
+
+    <li class="nav-item ">
+      <a class="nav-link" href="orders.php">
+        <i class="material-icons">library_books</i>
+        <p>Orders</p>
+      </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" href="addproduct.php">
+        <i class="material-icons">add</i>
+        <p>Add Products</p>
+      </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" href="manageuser.php">
+        <i class="material-icons">edit_user</i>
+        <p>Manage User</p>
+      </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" href="index.php">
+        <i class="material-icons">logout</i>
+        <p>Logout</p>
+      </a>
+    </li>
           <!-- <li class="nav-item active-pro ">
                 <a class="nav-link" href="./upgrade.html">
                     <i class="material-icons">unarchive</i>
                     <p>Upgrade to PRO</p>
                 </a>
-            </li> -->
-        </ul>
-      </div>
-    </div>
-    
-    
+              </li> -->
+            </ul>
+          </div>
+        </div>
+
