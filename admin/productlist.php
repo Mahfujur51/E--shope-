@@ -27,15 +27,18 @@ if(strlen($_SESSION['alogin'])==0)
 
 }
 ///pagination
+if (isset($_GET['page'])) {
 $page=$_GET['page'];
-if($page=="" || $page=="1")
-{
-  $page1=0;
+
 }
-else
-{
-  $page1=($page*10)-10;
+else {
+    $page=1;
 }
+$num_per_page=05;
+$start_from=($page-1)*05;
+
+
+ 
 include "sidenav.php";
 include "topheader.php";
 ?>
@@ -66,11 +69,11 @@ include "topheader.php";
               </thead>
               <tbody>
                 <?php 
-                $sql="SELECT * FROM tbl_product";
+                $sql="SELECT * FROM tbl_product  limit $start_from,$num_per_page";
                 $query=mysqli_query($con,$sql);
                 $cont=1;
                 while ($result=mysqli_fetch_array($query)) {
-                    
+
                  ?>
                  <tr>
                   <td><?php echo $cont; ?></td>
@@ -96,32 +99,31 @@ include "topheader.php";
       </div>
       <nav aria-label="Page navigation example">
         <ul class="pagination">
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-              <span class="sr-only">Previous</span>
-            </a>
-          </li>
-          <?php
-              //counting paging
-          $paging=mysqli_query($con,"SELECT * from tbl_product");
-          $count=mysqli_num_rows($paging);
-          $a=$count/10;
-          $a=ceil($a);
+          <center>
 
-          for($b=1; $b<=$a;$b++)
-          {
-            ?>
-            <li class="page-item"><a class="page-link" href="productlist.php?page=<?php echo $b;?>"><?php echo $b." ";?></a></li>
             <?php
-          }
-          ?>
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-              <span class="sr-only">Next</span>
-            </a>
-          </li>
+            $pr_query="SELECT * from tbl_product";
+            $pr_result=mysqli_query($con,$pr_query);
+            $total_record=mysqli_num_rows($pr_result);
+            $total_page=ceil($total_record/$num_per_page);
+
+            if ($page>1) {
+
+              echo "<a href='?page=".($page-1)."' class='btn btn-danger'>Previous</a>";
+
+            }
+            for ($i=1; $i <$total_page ; $i++) {
+              echo "<a href='?page=".$i."' class='btn btn-primary'>$i</a>";
+            }
+            if ($i>$page) {
+
+              echo "<a href='?page=".($page+1)."' class='btn btn-danger'>Next</a>";
+
+            }
+
+
+            ?>
+          </center>
         </ul>
       </nav>
 
