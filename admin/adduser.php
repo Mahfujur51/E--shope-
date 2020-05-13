@@ -13,15 +13,20 @@ if(isset($_POST['btn_save']))
 $first_name=$_POST['first_name'];
 $last_name=$_POST['last_name'];
 $email=$_POST['email'];
-$user_password=$_POST['password'];
-$mobile=$_POST['phone'];
-$address1=$_POST['city'];
-$address2=$_POST['country'];
+$password=$_POST['password'];
+$phone=$_POST['phone'];
+$address1=$_POST['address1'];
+$address2=$_POST['address2'];
+$sql="INSERT INTO tbl_user(first_name,last_name,email,password,phone,address1,address2)VALUES('$first_name','$last_name','$email','$password','$phone','$address1','$address2')";
+$query=mysqli_query($con,$sql);
+		if ($query) {
+      echo "<script>alert('User Inserted Successfully!!')</script>";
+      header("Location:manageuser.php"); 
+    }else{
+      echo "<script>alert('Something Wrong try again!!')</script>";
+    }
 
-mysqli_query($con,"insert into user_info(first_name, last_name,email,password,mobile,address1,address2) values ('$first_name','$last_name','$email','$user_password','$mobile','$address1','$address2')") 
-			or die ("Query 1 is inncorrect........");
-header("location: manage_users.php"); 
-mysqli_close($con);
+
 }
 
 
@@ -79,13 +84,13 @@ mysqli_close($con);
                       <div class="col-md-4">
                         <div class="form-group bmd-form-group">
                           <label class="bmd-label-floating">City</label>
-                          <input type="text" name="city" id="city"  class="form-control" required>
+                          <input type="text" name="address1" id="city"  class="form-control" required>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group bmd-form-group">
                           <label class="bmd-label-floating">Address</label>
-                          <input type="text" name="country" id="country" class="form-control" required>
+                          <input type="text" name="address2" id="country" class="form-control" required>
                         </div>
                       </div>
                       
