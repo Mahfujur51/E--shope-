@@ -3,8 +3,20 @@ session_start();
 error_reporting(0);
 include("include/db.php");
 if (isset($_POST['submit'])) {
-	
-	
+	$username=$_POST['username'];
+	$password=md5($_POST['password']);
+	$sql="SELECT * FROM tbl_admin WHERE username='$username' AND password='$password'";
+	$query=mysqli_query($con,$sql);
+	$num=mysqli_num_rows($query);
+	if ($num>0) {
+		$_SESSION['alogin']=$username;
+		header("Location:index.php");
+
+	}
+	else{
+		echo "<script>alert('Invalid Username Or Password!!')</script>";
+	}
+
 }
 
 
