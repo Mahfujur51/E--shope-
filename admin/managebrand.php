@@ -9,15 +9,15 @@ else{
 	if(isset($_POST['submit']))
 	{
 			$id=$_GET['eid'];
-		$catname=$_POST['catname'];
-		$sql="UPDATE tbl_category SET catname='$catname' WHERE id='$id'";
+		$brandname=$_POST['brandname'];
+		$sql="UPDATE tbl_brand SET brandname='$brandname' WHERE id='$id'";
 		$query=mysqli_query($con,$sql);
 		if ($query) {
-			echo "<script>alert('Category Updated Successfully!!')</script>";
-			header("Location:category.php");
+			echo "<script>alert('Brand Updated Successfully!!')</script>";
+			header("Location:brand.php");
 		}else{
-			echo "<script>alert('Category Not Updated Successfully!!')</script>";
-			header("Location:addcat.php");
+			echo "<script>alert('Brand Not Updated Successfully!!')</script>";
+			header("Location:addbrand.php");
 		}
 	}
 	include "sidenav.php";
@@ -33,12 +33,12 @@ else{
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header card-header-primary">
-								<h5 class="title">Manage Category</h5>
+								<h5 class="title">EDIT BRAND</h5>
 							</div>
 							<div class="card-body">
 								<?php
 								$id=$_GET['eid'];
-								$sql="SELECT * FROM tbl_category WHERE id='$id'";
+								$sql="SELECT * FROM tbl_brand WHERE id='$id'";
 								$query=mysqli_query($con,$sql);
 								while ($result=mysqli_fetch_array($query)) {
 							# code...
@@ -48,8 +48,8 @@ else{
 
 										<div class="col-md-12">
 											<div class="form-group">
-												<label>Category Title</label>
-												<input type="text" id="product_name" required name="catname" value="<?php echo $result['catname']; ?>" class="form-control">
+												<label>Brand Title</label>
+												<input type="text" id="product_name" required name="brandname" value="<?php echo $result['brandname']; ?>" class="form-control">
 											</div>
 											<div class="form-group">
 

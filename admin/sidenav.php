@@ -34,7 +34,7 @@
   <div class="sidebar-wrapper ps-container ps-theme-default" data-ps-id="3a8db1f4-24d8-4dbf-85c9-4f5215c1b29a">
 
     <ul class="nav">
-      <li   <?php if(basename($_SERVER['PHP_SELF'], '.php') == 'index' ) { ?> class="active" <?php } else { ?> <?php }?>>
+      <li class="nav-item">
         <a class="nav-link" href="index.php">
           <i class="material-icons">dashboard</i>
           <p>Dashboard</p>
@@ -46,18 +46,18 @@
           <p>Add User</p>
         </a>
       </li>
-      <li <?php if(basename($_SERVER['PHP_SELF'], '.php') == 'category'OR'addcat'OR'managecategory') { ?> class="active" <?php } else { ?> <?php }?>>
+      <li class="nav-item">
         <a class="nav-link" href="category.php">
           <i class="material-icons">dehaze</i>
           <p>Category</p>
         </a>
       </li>
-      <li <?php if(basename($_SERVER['PHP_SELF'], '.php') == 'brand'OR'addbrand'OR'managebrand') { ?> class="active" <?php } else { ?> <?php }?>>
+      <li class="nav-item" >
         <a class="nav-link" href="brand.php">
           <i class="material-icons">
           branding_watermark
         </i>
-        <p>Category</p>
+        <p>Brand</p>
       </a>
     </li>
     <li class="nav-item">

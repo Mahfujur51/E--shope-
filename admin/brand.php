@@ -9,10 +9,10 @@ else{
 	if(isset($_GET['del']))
 	{
 		$id=$_GET['del'];
-		$sql="DELETE FROM tbl_category WHERE id='$id'";
+		$sql="DELETE FROM tbl_brand WHERE id='$id'";
 		$query=mysqli_query($con,$sql);
 		if ($query) {
-			echo "<script>alert('Category Deleted Successfully!!')</script>";
+			echo "<script>alert('Brand Deleted Successfully!!')</script>";
 		}
 	}
 	include "sidenav.php";
@@ -27,11 +27,11 @@ else{
 				<div class="col-md-12">
 					<a class="btn btn-outline-success" href="addbrand.php">
 						<i class="material-icons">add_circle</i>
-						<span>Add Category</span>
+						<span>Add Brand</span>
 					</a>
 					<div class="card">
 						<div class="card-header card-header-primary">
-							<h5 class="title">Show Category</h5>
+							<h5 class="title">Show Brand</h5>
 						</div>
 
 						<table class="table">
@@ -43,7 +43,7 @@ else{
 								<th>Action</th>
 							</tr>
 							<?php 
-							$sql="SELECT * FROM tbl_category";
+							$sql="SELECT * FROM tbl_brand";
 							$query=mysqli_query($con,$sql);
 							$num=mysqli_num_rows($query);
 							if ($num>0) {
@@ -54,11 +54,11 @@ else{
 							 ?>
 							<tr>
 								<td><?php echo $cont; ?></td>
-								<td><?php echo $result['catname']; ?></td>
+								<td><?php echo $result['brandname']; ?></td>
 								<td><?php echo $result['createdate']; ?></td>
 								<td><?php echo $result['updatedate']; ?></td>
 								<td>
-									<a href="managecategory.php?eid=<?php echo $result['id']; ?>" class="btn btn-success">Eidt</a>
+									<a href="managebrand.php?eid=<?php echo $result['id']; ?>" class="btn btn-success">Eidt</a>
 									<a href="?del=<?php echo $result['id']; ?>" class="btn btn-danger" onclick="return confirm('Are you sure To Delete?');">
 									Delete</a>
 								</td>
