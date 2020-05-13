@@ -58,7 +58,7 @@ else{
 								<td><?php echo $result['createdate']; ?></td>
 								<td><?php echo $result['updatedate']; ?></td>
 								<td>
-									<a href="" class="btn btn-success">Eidt</a>
+									<a href="managecategory.php?eid=<?php echo $result['id']; ?>" class="btn btn-success">Eidt</a>
 									<a href="?del=<?php echo $result['id']; ?>" class="btn btn-danger" onclick="return confirm('Are you sure To Delete?');">
 									Delete</a>
 								</td>
